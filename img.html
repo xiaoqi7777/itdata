@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+  <div>
+    <p id="p">hello world</p>
+    <!--  -->
+    <div id="app">
+
+    </div>
+    
+  </div>
+  <script>
+    // css 隔离 shadow
+    let shadowDOM = app.attachShadow({mode:'closed'});
+
+    let pElm = document.createElement('p');
+    pElm.innerHTML = 'hello zf';
+    let styleElem = document.createElement('style')
+    styleElem.textContent = `
+      p{ color : red}
+    `
+    shadowDOM.appendChild(styleElem)
+    shadowDOM.appendChild(pElm)
+    // 缺点 挂载body上的属性 会有问题
+  </script>
+</body>
+</html>
